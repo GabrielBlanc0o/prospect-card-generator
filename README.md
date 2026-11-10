@@ -1,4 +1,4 @@
-# 🎯 Prospect Card Generator
+# Prospect Card Generator
 
 **Paste a company URL. Get a sales prospect card in seconds.**
 
