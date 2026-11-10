@@ -1,40 +1,44 @@
-# Prospect Card Generator
+# 🎯 Prospect Card Generator
 
-Console tool for B2B sales prospecting. Give it a company's website URL and it
-scrapes the page, then asks Claude to produce a prospect card:
+**Paste a company URL. Get a sales prospect card in seconds.**
 
-- **What they sell**
-- **Possible problems** (likely pain points)
-- **Decision makers** (CEO, CFO, CTO or Head of Sales, and why)
-- **SPIN questions** (situation, problem, implication, need-payoff)
+![Python](https://img.shields.io/badge/python-3-blue)
+![Powered by Claude](https://img.shields.io/badge/powered%20by-Claude-d97757)
 
-## Requirements
+It scrapes the site, hands the text to Claude, and prints what you need before a first call.
 
-- Python 3
-- [Claude Code CLI](https://claude.com/claude-code) installed and logged in.
-  Prompts run through `claude -p` on your subscription, so no API key is needed.
+```
+$ python main.py
+Enter the company's website URL: acme.com
 
-## Setup
+WHAT THEY SELL:
+Cloud invoicing software for small logistics companies.
+
+POSSIBLE PROBLEMS:
+  - Manual data entry between tools
+  - Slow payment collection
+
+DECISION MAKERS:
+CFO, since the product touches billing and cash flow.
+
+SPIN QUESTIONS:
+  Situation: How do you handle invoicing today?
+  Problem: Where does that process slow you down?
+  Implication: What happens to cash flow when invoices go out late?
+  Need-payoff: What would faster invoicing let your team do?
+```
+
+*Illustrative output.*
+
+## Quick start
 
 ```
 pip install -r requirements.txt
-```
-
-## Run
-
-```
 python main.py
 ```
 
-Enter a URL when prompted (the `https://` prefix is optional).
+Needs Python 3 and the [Claude Code CLI](https://claude.com/claude-code), logged in. No API key.
 
-## Project layout
+## Make it yours
 
-```
-main.py                 entry point
-scraper/core.py         fetches and parses the page
-scraper/analyzer.py     prompt, JSON schema and card formatting
-scraper/claude_cli.py   wrapper around the Claude Code CLI
-```
-
-To describe your own product, edit `OUR_SOLUTION` in `main.py`.
+Set `OUR_SOLUTION` in `main.py` to what you sell. The need-payoff question is built around it.
